@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import {db_URI, NODE_ENV} from '../config/env.js';
+import {db_URI,NODE_ENV} from '../config/env.js';
 
 
 if(!db_URI){
