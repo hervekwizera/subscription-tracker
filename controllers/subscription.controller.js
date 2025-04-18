@@ -6,6 +6,7 @@ export const  createSubscription = async (req,res,next)=>{
             ...req.body,
             user: req.user.id,
         })
+        res.status(201).json({success:true,data:subscription})
     } catch (e) {
         next(e);
     }
