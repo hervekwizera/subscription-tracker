@@ -28,15 +28,17 @@ export const sendReminders = serve(async (context) => {
   }
 });
 
-const fetchSubscription = async (context, subscriptionId) => {
-  return await context.run("get subscription", () => {
-    return Subscription.findById(subscriptionId).populate("user", "name email");
-  });
-};
+
 
 const sleepUntilReminder = async (context, label, date) => {
   console.log(`Sleeping until ${label} reminder at ${date}`);
   await context.sleepUntil(label, date.toDate());
+};
+const fetchSubscription = async (context, subscriptionId) => {
+  return await context.run("get subscription", async () => {
+    const subscription = await Subscription.findById(subscriptionId).populate("user", "name email");
+    return subscription ? subscription.toObject() : null;
+  });
 };
 
 const triggerReminder = async (context, label) => {
