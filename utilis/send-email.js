@@ -30,5 +30,4 @@ export const sendReminderEmail = async ({ to, type, subscription }) => {
     console.log('Email sent: ' + mailInfor.response);
   })
 
-
 };
