@@ -1,4 +1,4 @@
-import{emailTemplates} from './email-template'
+import{emailTemplates} from './email-template.js'
 import dayjs from 'dayjs';
 import transporter,{ accountEmail } from '../config/nodemailer.js';
 
